@@ -12,6 +12,7 @@ Source0:	https://github.com/downloads/MrBertie/pagequery/pagequery0.6.5.zip
 URL:		http://www.dokuwiki.org/plugin:pagequery
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.553
+BuildRequires:	unzip
 Requires:	dokuwiki >= 20091225
 Requires:	php-common >= 4:%{php_min_version}
 Requires:	php-date
