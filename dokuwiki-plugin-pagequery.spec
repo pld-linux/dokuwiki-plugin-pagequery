@@ -3,12 +3,12 @@
 %include	/usr/lib/rpm/macros.php
 Summary:	DokuWiki plugin to search for and list pages, sorted by name, date, creator, etc
 Name:		dokuwiki-plugin-%{plugin}
-Version:	20101103
+Version:	20110226
 Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-Source0:	https://github.com/downloads/MrBertie/pagequery/pagequery0.6.5.zip
-# Source0-md5:	11d9df385bf904b9c8c7ca548dc028d2
+Source0:	https://github.com/downloads/MrBertie/pagequery/pagequery0.6.8.zip
+# Source0-md5:	b7822926aa8df953b039bc4996dc2ab3
 URL:		http://www.dokuwiki.org/plugin:pagequery
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.553
@@ -45,7 +45,7 @@ fi
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{plugindir}
 cp -a . $RPM_BUILD_ROOT%{plugindir}
-rm $RPM_BUILD_ROOT%{plugindir}/{readme.txt,changes.txt}
+rm $RPM_BUILD_ROOT%{plugindir}/readme.txt
 
 # find locales
 %find_lang %{name}.lang
@@ -61,7 +61,7 @@ fi
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc changes.txt readme.txt
+%doc readme.txt
 %dir %{plugindir}
 %{plugindir}/*.txt
 %{plugindir}/*.php
