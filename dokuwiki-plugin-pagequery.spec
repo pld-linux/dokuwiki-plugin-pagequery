@@ -1,18 +1,17 @@
 %define		plugin		pagequery
-%define		php_min_version 5.0.0
+%define		php_min_version 5.3.0
 %include	/usr/lib/rpm/macros.php
 Summary:	DokuWiki plugin to search for and list pages, sorted by name, date, creator, etc
 Name:		dokuwiki-plugin-%{plugin}
-Version:	20110226
-Release:	6
+Version:	20120303
+Release:	1
 License:	GPL v2
 Group:		Applications/WWW
-Source0:	https://github.com/downloads/MrBertie/pagequery/pagequery0.6.8.zip
-# Source0-md5:	b7822926aa8df953b039bc4996dc2ab3
+Source0:	https://github.com/MrBertie/pagequery/tarball/master/%{plugin}-%{version}.tgz
+# Source0-md5:	7e66a821bc95d99fc37c891970a19d3f
 URL:		http://www.dokuwiki.org/plugin:pagequery
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.553
-BuildRequires:	unzip
 Requires:	dokuwiki >= 20091225
 Requires:	php(core) >= %{php_min_version}
 Requires:	php(pcre)
@@ -32,7 +31,7 @@ in columns, with preview snippet.
 
 %prep
 %setup -qc
-mv %{plugin}/* .
+mv *-%{plugin}-*/* .
 %undos *.txt
 
 version=$(awk '/^date/{print $2}' plugin.info.txt)
