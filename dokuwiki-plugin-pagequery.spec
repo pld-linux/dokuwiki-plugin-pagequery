@@ -1,6 +1,5 @@
 %define		plugin		pagequery
 %define		php_min_version 5.3.0
-%include	/usr/lib/rpm/macros.php
 Summary:	DokuWiki plugin to search for and list pages, sorted by name, date, creator, etc
 Name:		dokuwiki-plugin-%{plugin}
 Version:	20120303
