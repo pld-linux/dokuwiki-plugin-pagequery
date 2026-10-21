@@ -3,11 +3,12 @@
 Summary:	DokuWiki plugin to search for and list pages, sorted by name, date, creator, etc
 Name:		dokuwiki-plugin-%{plugin}
 Version:	20180122
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/WWW
 Source0:	https://github.com/MrBertie/pagequery/tarball/master/%{plugin}-%{version}.tgz
 # Source0-md5:	77fc93596880c4b2046e187bc8898536
+Patch0:		dokuwiki-fulltext.patch
 URL:		http://www.dokuwiki.org/plugin:pagequery
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.553
@@ -31,6 +32,7 @@ in columns, with preview snippet.
 %prep
 %setup -qc
 mv *-%{plugin}-*/* .
+%patch -P0 -p1
 %undos *.txt
 
 # using date from latest commit

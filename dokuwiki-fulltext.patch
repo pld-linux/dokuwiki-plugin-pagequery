@@ -1,0 +1,27 @@
+--- pagequery/syntax.php.orig
++++ pagequery/syntax.php
+@@ -14,7 +14,10 @@
+ if (!defined('DOKU_PLUGIN')) define('DOKU_PLUGIN',DOKU_INC.'lib/plugins/');
+ 
+ require_once(DOKU_PLUGIN . 'syntax.php');
+-require_once(DOKU_INC . 'inc/fulltext.php');
++// DokuWiki 2026 moved ft_pageSearch() to its preloaded compatibility layer.
++if (!function_exists('ft_pageSearch')) {
++    require_once(DOKU_INC . 'inc/fulltext.php');
++}
+ require_once(DOKU_PLUGIN . 'pagequery/inc/pagequery.php');
+ 
+ 
+--- pagequery/inc/pagequery.php.orig
++++ pagequery/inc/pagequery.php
+@@ -1,6 +1,9 @@
+ <?php
+ 
+-require_once(DOKU_INC . 'inc/fulltext.php');
++// Older DokuWiki versions still need the fulltext functions loaded explicitly.
++if (!function_exists('ft_pageSearch')) {
++    require_once(DOKU_INC . 'inc/fulltext.php');
++}
+ 
+ 
+ class PageQuery {
